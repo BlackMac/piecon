@@ -153,7 +153,7 @@
         }
 
         if (!isNaN(parseFloat(percentage)) && isFinite(percentage)) {
-            if (!getCanvas().getContext || browser.ie || browser.safari || options.fallback === true) {
+            if ((!getCanvas().getContext || browser.ie || browser.safari) && options.fallback === true) {
                 // Fallback to updating the browser title if unsupported
                 return updateTitle(percentage);
             } else if (options.fallback === 'force') {
